@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="2022.8.12" />
     <ClInclude Include="2022.8.14" />
+    <ClInclude Include="2022.8.17" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
