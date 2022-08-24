@@ -2,99 +2,113 @@
 
 void main()
 {
-	//구구단
+	//문자열이란?
 	/*
-	for (int i = 2; i <= 9; i++)
+	// 연속적인 메모리 공간에 저장된 문자 변수의 집합입니다.
+
+	// char는 1 byte이므로 하나의 문자만 저장할 수 있습니다
+	char alphabet = 'A';
+
+                       //0   1   2   3   4
+	char string [6] = { 'A','B','C','D','E'};
+
+	string[0] = 'T';
+
+	//문자 배열에 선언할 때 맨 마지막에 NULL만 포함됩니다.
+	//문자 배열같은 경우에는 배열의 크기 n + 1로 설정해야 합니다.
+	printf("string 배열의 값 : %s\n", string);
+
+    //NULL문자는 문자열에 끝을 알려주는 제어 문자 입니다.
+
+	// [T] [B] [\0] [D] [E]
+	string[2] = '\0';
+
+	//문자 배열 중간에 NULL문자가 있으면 NULL문자 이전의 문자열까지만 출력합니다
+	printf("string 배열의 값 : %s", string);
+	*/
+	
+	//문자열 초기화
+	/*
+	//코드 영역 -->BSS, Read only Data Segment,
+	//데이터 영역
+    //스택
+	//힙
+
+	// "count"
+	//[c][o][u][n][t][\0] -> 5 char + null = 6 byte
+
+	//4  byet 변수의 메모리를 저장할 수 있는 포인터 변수 
+	// char * prt -> [c][o][u][n][t][\0]
+	char* ptr = "count";
+
+	// 포인터가 변수가 어디를 가리키고 있는지 확인하기 위해서 
+	//거기 있는 값을 출력하기 위해서 %c로 출력합니다
+
+	//ptr[0] = "T";
+	// *prt을 하는 순간 포인터가 가리키고 있는 위치에 접근해서 값을 출력합니다.
+
+	//ptr = count
+	//"%s" 문자열의 시작주소로 접근해서 값을 count한다 
+
+	printf("ptr이 가리키는 주소 : %p\n", ptr);
+	printf("ptr이 가리키는 값 : %p\n", ptr[0]);
+	printf("ptr이 가리키는 문자열의 값 : %s\n", ptr);
+	*/
+
+	//이중 포인터
+	/*
+	// 4 byet
+	int value = 100;
+
+	// ptr(value 주소) -> value 주소를 가리킵니다.
+	int * ptr = &value;
+
+	// twoPtr(이중 포인터)은 ptr이라는 포인터 변수의 주소를 저장합니다
+	// towPtr(ptr의 주소) -> tpr의 시작 주소를 가리킵니다.
+	int ** twoPtr = &ptr;
+
+	printf("value의 시작 주소 : %p\n", &value);
+	printf("ptr이 가르키는 값 : %p\n", ptr);
+	printf("towPtr이 가르키는 값 : %p\n", twoPtr);
+
+	printf("ptr 변수가 가리키고 있는 변수의 값 : %d\n", *ptr);
+	printf("twoPtr 변수가 가리키고 있는 변수의 값 : %d\n", **twoPtr);
+
+
+	//  towptr(00AAEE66)        ptr(00FF883A)             value 
+	//[00FF883A]----->          [00DDFC55]----->       [00DDFC55]
+	*/
+
+	//소수 판별하기
+	/*
+	//소수(1보다 큰 자연수 중에 1과 자기 자신만을 약수로 가지는 수)
+	
+	//내가 입력한 숫자가 소수인지 아닌지 판별하는 프로그램
+	// 5 ->소수입니다
+	// 6 ->소수가 아닙니다.
+
+	int value;
+	int count = 0;
+
+	scanf_s("%d", &value);
+
+	for(int i = 2; i < value -1; i++)
 	{
-		for (int j = 1; j <= 9; j++)
+		if(value % i == 0 )
 		{
-			printf("%d x %d = %d\n", i, j, i * j);
+			count++;
 		}
-
-		printf("\n");
 	}
-	*/
-
-
-	// while문
-	// 특정 조건을 만족할 때까지 계속해서 주어진 명령문을 실행하는 반복문입니다.
-	/*
-	int memory = 5;
-
-	while (memory > 1)
+	if (count == 0)
 	{
-		memory--;
-		printf("조건이 참입니다.\n");
-		break;
+		printf("소수");
 	}
-	*/
-
-	// do while 문이란?
-	/*
-	// 조건과 상관없이 한 번의 작업을 수행한 다음 조건에 따라 명령문을 실행하는 반복문입니다.
-	
-	int value = 5;
-
-	do
+	else
 	{
-		// do에서 선언한 변수는 while의 조건으로 사용할 수 없습니다
-		//int x = 10;
-		printf("조건이 거짓입니다.");
-	} 
-	while (value == 10);
-		*/ 
-
-	//continue 문이란?
-	/*
-	// 해당 조건문만 실행하지 않고, 반복문은 이어서 실행하는 제어문입니다.
-	// 1~10까지 수를 출력하는데 3으 배수만 제외하고 출력
-
-	for (int i = 0; i <= 10; i++)
-	{
-		if (i % 3 == 0)
-			continue;
-
-		printf("%d\n", i);
+		printf("소수가 아닙니다.");
 	}
-	*/
 
-	// 형 변환이란?
-	// 서로 다른 자료형을 가지고 있는 변수끼리 연산이 이루어질 때 기존에 지정했던 자료형을 다른 자료형으로 변환하는 과정입니다.
-	// C언어에서는 정수와 정수를 연산하게 되면 무조건 정수의 값만 가질 수 있습니다.
 
-	// 암묵적 형 변환
-	// 서로 다른 자료형으로 연산이 이루어질 때 자료형의 크기가 큰 자료형으로 변환되는 과정입니다.
-	/*
-	printf("char의 크기 : %d\n", sizeof(char));
-	printf("short의 크기 : %d\n", sizeof(short));
-	printf("int의 크기 : %d\n", sizeof(int));
-	printf("long의 크기 : %d\n", sizeof(long));
-	printf("float의 크기 : %d\n", sizeof(float));
-	*/
-	char x = 10;
-	short y = 20;
-	        
-	// 30 = 4 byet (int) + 4 byet (int) 
-	int sum = x + y;
-
-	int z = 500; //[] [] [] []
-	char temp = z; // []
-
-	printf("temp의 값 : %d\n", temp);
-
-	//명시적 형 변환
-	int p0 = 10;
-	int p1 = 3;
-
-	// result <- p0 float / p1 float
-	float result = (float)p0 / p1;
-	printf("result의 값 : %f", result);
-
-	//int와 long의 차이
-	//int는 32비트 운영체제와 64비트 운영체제에서도 4 byte의 크기를 가집니다
-	
-	//long는 32비트 운영체제에서는 4 byet이고 64비트 운영체제에서는 8 byet의 크기를 가집니다.
-	 
-	//단, long도 윈도우즈 64비트 운영체제에서는 4 byet입니다.
 
 }
+*/

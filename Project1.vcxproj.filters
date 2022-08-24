@@ -29,5 +29,11 @@
     <ClInclude Include="2022.8.17">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="2022.8.18">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="2022.8.23" />
   </ItemGroup>
 </Project>
