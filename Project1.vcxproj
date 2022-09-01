@@ -147,6 +147,8 @@
     <ClInclude Include="2022.8.17" />
     <ClInclude Include="2022.8.18" />
     <ClInclude Include="Header.h" />
+    <ClInclude Include="2022.8.29" />
+    <ClInclude Include="8.31" />
   </ItemGroup>
   <ItemGroup>
     <None Include="2022.8.23" />
